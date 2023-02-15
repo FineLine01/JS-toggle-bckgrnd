@@ -11,6 +11,12 @@
     <div id="demo"></div>
     <button id="toggle">Toggle class</button>
 
+    <form id="numberForm" >
+        <label for="newNumber">Add a number</label>
+        <input type="text" id="newNumber" name="newNumber" pattern="[0-9]+" >
+        <button type="submit">Submit</button>
+    </form>
+
     <script>
         const toggleBtn = document.getElementById("toggle");
         const body = document.querySelector("body");
@@ -24,6 +30,19 @@
                 body.classList.add("blue");
                 body.classList.remove("red");
 
+            }
+        })
+
+        const form = document.querySelector("#numberForm");
+
+        form.addEventListener('submit', function(e){
+            e.preventDefault();
+            const inputValue = document.getElementById("newNumber").value;
+            // console.log(typeof(inputValue));
+            const number  = parseInt(inputValue);
+            console.log(number);
+            if (number === 5) {
+                console.log('Bingo!');
             }
         })
     </script>
